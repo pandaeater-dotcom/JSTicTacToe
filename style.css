@@ -13,8 +13,8 @@ body::-webkit-scrollbar {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    width: 400px;
-    height: 400px;
+    width: 399px;
+    height: 399px;
     background-color: rgb(51, 47, 47);
     border-radius: 15px;
     justify-content: space-evenly;
@@ -24,37 +24,38 @@ body::-webkit-scrollbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 5px;
-    margin: 2px;
+    width: 32.66%;
+    height: 32.67%;
     color:rgb(160, 150, 150);
     font-weight: bold;
-    font-size: 18px;
     transition: 100ms;
 }
 
-.hidden {
-    display: none;
+#s0, #s3, #s6 {
+    border-right: 2px solid rgb(160, 150, 150);
 }
 
-.checked {
-    transition: 400ms;
-    background-color: rgb(71, 66, 66);
+#s1, #s4, #s7 {
+    border-right: 2px solid rgb(160, 150, 150);
+    border-left: 2px solid rgb(160, 150, 150);
 }
-/*
-.bomb {
-    background-color: darkgoldenrod;
+
+#s2, #s5, #s8 {
+    border-left: 2px solid rgb(160, 150, 150);
 }
-*/
+
+#s0, #s1, #s2, #s3, #s4, #s5 {
+    border-bottom: 2px solid rgb(160, 150, 150);
+}
+
+#s6, #s7, #s8, #s3, #s4, #s5 {
+    border-top: 2px solid rgb(160, 150, 150);
+}
+
 img {
     transition: 400ms;
     width: 64%;
     height: 64%;
-}
-
-.flagged {
-    background-color: darkgoldenrod;
 }
 
 h1, h2 {
@@ -63,22 +64,11 @@ h1, h2 {
     
 }
 
-#logo {
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-}
-
 #heading {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-}
-
-.lefthead, .righthead {
-    display: flex;
     align-items: center;
 }
 
@@ -146,4 +136,9 @@ h1, h2 {
 
 #score.blink {
     color:rosybrown;
+}
+
+.checked {
+    transition: 900ms;
+    font-size: 60px;
 }

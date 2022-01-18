@@ -12,7 +12,6 @@ function initBoard() {
         squareList.push(square);
     }
     return squareList;
-    
 }
 
 function runGame(squareList) {
@@ -32,6 +31,8 @@ function clicked(square, squareList) {
     square.innerHTML = `<span>${whoseTurn}</span>`;
     if (checkGameWon(whoseTurn, square, squareList)) {
         gameOver = true;
+        document.querySelector('#menuTitle').innerText = 'Game Over!';
+        document.querySelector('#outcome').innerText = `Player ${whoseTurn} won!`; 
         togglePopup();
         return;
     }

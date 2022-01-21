@@ -44,18 +44,30 @@ function checkGameWon(whoseTurn, square, squareList) {
     const index = parseInt(square.getAttribute('id').slice(1));
     const leftEdge = index % 3 === 0;
     const rightEdge = index % 3 === 1;
-    for (let i = 1; i <= 4; i++) if (!(leftEdge && i % 3 === 0) || !(rightEdge && i === 1)) {
-        if (squareList[index-i] && squareList[index-i].getAttribute('data') === whoseTurn && 
-            squareList[index+i] && squareList[index+i].getAttribute('data') === whoseTurn) return true;
-        else if (squareList[index-i] && squareList[index-i].getAttribute('data') === whoseTurn) {
-            if (squareList[index-2*i] && squareList[index-2*i].getAttribute('data') === whoseTurn) return true;
-        }
-        else if (squareList[index+i] && squareList[index+i].getAttribute('data') === whoseTurn) {
-            if (squareList[index+2*i] && squareList[index+2*i].getAttribute('data') === whoseTurn) return true;
-        }
+
+    for (let i = 0; i < 9; i+=3) {
+        if (squareList[i].getAttribute('data') === whoseTurn && 
+        squareList[i+1].getAttribute('data') === whoseTurn && 
+        squareList[i+2].getAttribute('data') === whoseTurn) return true;
     }
+
+    for (let i = 0; i < 3; i++) {
+        if (squareList[i].getAttribute('data') === whoseTurn && 
+        squareList[i+3].getAttribute('data') === whoseTurn && 
+        squareList[i+6].getAttribute('data') === whoseTurn) return true;
+    }
+
+    if (squareList[0].getAttribute('data') === whoseTurn &&
+    squareList[4].getAttribute('data') === whoseTurn &&
+    squareList[8].getAttribute('data') === whoseTurn) return true;
+
+    if (squareList[2].getAttribute('data') === whoseTurn &&
+    squareList[4].getAttribute('data') === whoseTurn &&
+    squareList[6].getAttribute('data') === whoseTurn) return true;
+
     return false;
 }
+
 
 function togglePopup() {
     document.querySelector('.popup').classList.toggle('active');
